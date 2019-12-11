@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>comm首页</title>
+</head>
+<body>
+<div>
+	<input type="text" class="js-huiwenText" placeholder="请输入回文数">
+	<input type="button" class="js-huiwen" value="判断是否是回文">
+</div>
+<div>
+	<input type="text" class="js-quchongText" placeholder="请输入需要去重的数">
+	<input type="text" class="js-quchongResult" placeholder="结果">
+	<input type="button" class="js-quchong" value="点击去重">
+</div>
+</body>
+<script src="comm.js"></script>
+<script>
+/**
+  * 回文判定
+ **/
+	document.querySelector('.js-huiwen').addEventListener('click',function(){
+		var huiwen=document.querySelector('.js-huiwenText').value;
+		if(huiwen == ''){
+			alert('输入不能为空');
+			return false;
+		}
+		if(palindrome(huiwen))alert('很嘚瑟的告诉你，这家伙是回文');
+		else alert('很不幸的告诉你，这家伙不是回文');
+	});
+/**
+  * 去重
+ **/
+	document.querySelector('.js-quchong').addEventListener('click',function(){
+		var quchong=document.querySelector('.js-quchongText').value;
+		if(quchong == ''){
+			alert('输入不能为空');
+			return false;
+		}
+		document.querySelector('.js-quchongResult').value=dedupe(quchong);
+	});
+</script>
+</html>
